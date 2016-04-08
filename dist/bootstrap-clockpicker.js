@@ -331,14 +331,27 @@
 			canvas.append(svg);
 
 			this.hand = hand;
-			this.bg = bg;
+			this.bg = bg;    
 			this.fg = fg;
 			this.bearing = bearing;
 			this.g = g;
 			this.canvas = canvas;
 		}
+        
+        this.input.change(function(e) {
+            self.raiseCallback(self.options.onChange);
+        });
+                     
+        if( this.options.readonly){
+            this.input.prop('readonly', true);
+        }
+        else{
+            this.input.prop('readonly', false);
+        }
 
 		this.raiseCallback(this.options.init);
+        
+        return this;
 	}
 
 	// Default options

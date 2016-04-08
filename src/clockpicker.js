@@ -337,6 +337,17 @@
 			this.g = g;
 			this.canvas = canvas;
 		}
+        
+        this.input.change(function(e) {
+            self.raiseCallback(self.options.onChange);
+        });
+                     
+        if( this.options.readonly){
+            this.input.prop('readonly', true);
+        }
+        else{
+            this.input.prop('readonly', false);
+        }
 
 		this.raiseCallback(this.options.init);
         
